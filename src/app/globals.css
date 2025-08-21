@@ -1,0 +1,387 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Tactical Terminal Fonts */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+:root {
+  /* Primary Tactical Colors */
+  --vault-black: #000000;          /* Deep tactical black */
+  --vault-white: #ffffff;          /* Stark contrast white */
+  --vault-gray-dark: #1a1a1a;      /* Shadow zones */
+  --vault-gray-medium: #666666;    /* Equipment gray */
+  --vault-gray-light: #cccccc;     /* Technical readouts */
+  --vault-silver: #c0c0c0;         /* X-Metal surfaces */
+  
+  /* Functional Accents - USE STRATEGICALLY */
+  --lens-red: #ff0000;             /* Fire Iridium lens highlights */
+  --warning-amber: #ff6600;        /* Tactical warning indicators */
+  --status-green: #00ff00;         /* System operational */
+  
+  /* Elite Forces Typography System */
+  --font-command: 'Orbitron', 'JetBrains Mono', monospace;     /* Command interfaces */
+  --font-terminal: 'Share Tech Mono', 'JetBrains Mono', monospace; /* Terminal displays */
+  --font-tactical: 'JetBrains Mono', 'SF Mono', monospace;     /* Technical readouts */
+  --font-classified: 'Orbitron', 'Impact', sans-serif;        /* Classification headers */
+  --font-body: 'JetBrains Mono', 'Consolas', monospace;       /* Body text - tactical spec */
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: var(--font-body);
+  background: var(--vault-black);
+  color: var(--vault-white);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Elite Forces Command Title */
+.vault-title {
+  font-family: var(--font-command);
+  font-weight: 900;
+  font-size: clamp(48px, 8vw, 96px);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--vault-white);
+  text-align: center;
+  margin: 0;
+  line-height: 1;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Tactical Body Text */
+.body-text {
+  font-family: var(--font-tactical);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--vault-gray-light);
+  margin: 0 0 32px 0;
+  letter-spacing: 0.02em;
+}
+
+/* Classification Section Headers */
+.section-header {
+  font-family: var(--font-classified);
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vault-white);
+  margin: 0 0 48px 0;
+  position: relative;
+}
+
+/* Terminal Technical Specifications */
+.tech-spec {
+  font-family: var(--font-terminal);
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  color: var(--vault-gray-medium);
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+  text-transform: uppercase;
+}
+
+/* Container System with Lots of Space */
+.vault-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.vault-section {
+  padding: 120px 0;
+  border-bottom: 1px solid var(--vault-gray-dark);
+}
+
+/* Grid System with More Space */
+.three-col-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 80px;
+  margin: 80px 0;
+}
+
+.two-col-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 120px;
+  align-items: start;
+  margin: 80px 0;
+}
+
+/* Generous Section Spacing */
+.hero-section {
+  padding: 200px 0 160px 0;
+}
+
+.content-section {
+  padding: 160px 0;
+}
+
+/* Command Interface Navigation */
+.vault-nav {
+  background: linear-gradient(180deg, var(--vault-black) 0%, rgba(0,0,0,0.95) 100%);
+  border-bottom: 2px solid var(--vault-gray-dark);
+  padding: 20px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-brand .nav-title {
+  font-family: var(--font-command);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.15em;
+  color: var(--vault-white);
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.nav-links {
+  display: flex;
+  gap: 48px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.nav-link {
+  background: none;
+  border: 1px solid transparent;
+  color: var(--vault-gray-light);
+  font-family: var(--font-terminal);
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  padding: 8px 16px;
+  position: relative;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  border-radius: 0;
+}
+
+.nav-link:hover {
+  color: var(--vault-white);
+  border-color: var(--vault-gray-dark);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-link.active {
+  color: var(--vault-white);
+  border-color: var(--vault-white);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Section Cards */
+.section-card {
+  text-align: left;
+}
+
+.section-link {
+  background: transparent;
+  color: var(--vault-gray-light);
+  border: 1px solid var(--vault-gray-medium);
+  padding: 12px 20px;
+  font-family: var(--font-terminal);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-link:hover {
+  color: var(--vault-white);
+  border-color: var(--vault-white);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.section-link::before {
+  content: '[';
+  margin-right: 8px;
+}
+
+.section-link::after {
+  content: ']';
+  margin-left: 8px;
+}
+
+/* Elite Forces UI Enhancements */
+
+/* Classification Banner */
+.classification-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--lens-red) 0%, var(--warning-amber) 50%, var(--lens-red) 100%);
+  z-index: 1001;
+  animation: pulse-classification 2s ease-in-out infinite;
+}
+
+@keyframes pulse-classification {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* HUD Overlay Elements */
+.hud-overlay {
+  position: relative;
+}
+
+.hud-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid var(--vault-gray-dark);
+  pointer-events: none;
+  background: linear-gradient(45deg, transparent 49%, rgba(255,255,255,0.03) 50%, transparent 51%);
+}
+
+/* Terminal Grid Pattern */
+.terminal-grid {
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 0;
+}
+
+/* Tactical Text Effects */
+.classified-text {
+  font-family: var(--font-classified);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vault-white);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.redacted {
+  background: var(--vault-white);
+  color: var(--vault-white);
+  padding: 2px 8px;
+  user-select: none;
+}
+
+.redacted:hover {
+  background: transparent;
+  color: var(--vault-gray-medium);
+}
+
+/* Status Indicators */
+.status-operational {
+  color: var(--status-green);
+  text-shadow: 0 0 5px var(--status-green);
+}
+
+.status-warning {
+  color: var(--warning-amber);
+  text-shadow: 0 0 5px var(--warning-amber);
+}
+
+.status-critical {
+  color: var(--lens-red);
+  text-shadow: 0 0 5px var(--lens-red);
+}
+
+/* Tactical Equipment Cards */
+.tactical-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--vault-gray-dark);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.tactical-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.tactical-card:hover::before {
+  left: 100%;
+}
+
+/* Responsive with Tactical Spacing */
+@media (max-width: 768px) {
+  .vault-container {
+    padding: 0 40px;
+  }
+  
+  .vault-section {
+    padding: 80px 0;
+  }
+  
+  .three-col-grid,
+  .two-col-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  
+  .hero-section {
+    padding: 120px 0 100px 0;
+  }
+  
+  .nav-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .nav-links {
+    gap: 24px;
+  }
+  
+  .nav-link {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
